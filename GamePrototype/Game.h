@@ -37,4 +37,5 @@ private:
 	int m_speed{ 150 };
 	float counter{};
 	bool hasWon;
+	bool paused;
 };

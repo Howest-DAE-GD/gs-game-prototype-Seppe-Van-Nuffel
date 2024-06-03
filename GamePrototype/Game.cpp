@@ -21,6 +21,7 @@ void Game::Initialize( )
 	m_pFruitManager = new FruitManager(GetViewPort().width, GetViewPort().height);
 	m_playerSpeed = 0;
 	hasWon = false;
+	paused = false;
 }
 
 void Game::Cleanup( )
@@ -29,7 +30,7 @@ void Game::Cleanup( )
 
 void Game::Update( float elapsedSec )
 {
-	if (m_pPlayer->isAlive() and !hasWon) {
+	if (m_pPlayer->isAlive() and !hasWon and !paused) {
 		m_pPlayer->MovePlayer(m_playerSpeed, elapsedSec);
 		m_pPlayer->lostStreak(m_pFruitManager->Update(elapsedSec));
 		counter += elapsedSec;
@@ -156,6 +157,11 @@ void Game::ProcessKeyUpEvent( const SDL_KeyboardEvent& e )
 	case SDLK_r:
 		if(!m_pPlayer->isAlive() or hasWon)
 			Reset();
+	case SDLK_p:
+		if (m_pPlayer->isAlive() and !hasWon and !paused)
+			paused = true;
+		else if (m_pPlayer->isAlive() and !hasWon and paused)
+			paused = false;
 	default:
 		break;
 	}
