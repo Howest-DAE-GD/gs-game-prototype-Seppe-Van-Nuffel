@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseGame.h"
+#include "player.h"
 class Game : public BaseGame
 {
 public:
@@ -27,4 +28,8 @@ private:
 	void Initialize();
 	void Cleanup( );
 	void ClearBackground( ) const;
+
+	Player* m_pPlayer;
+	int m_playerSpeed;
+	float m_speed{ 150.f };
 };

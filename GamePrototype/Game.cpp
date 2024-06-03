@@ -5,10 +5,13 @@ Game::Game( const Window& window )
 	:BaseGame{ window }
 {
 	Initialize();
+	m_pPlayer = new Player(GetViewPort().width, GetViewPort().height);
+	m_playerSpeed = 0;
 }
 
 Game::~Game( )
 {
+	delete m_pPlayer;
 	Cleanup( );
 }
 
@@ -23,6 +26,7 @@ void Game::Cleanup( )
 
 void Game::Update( float elapsedSec )
 {
+	m_pPlayer->MovePlayer(m_playerSpeed, elapsedSec);
 	// Check keyboard state
 	//const Uint8 *pStates = SDL_GetKeyboardState( nullptr );
 	//if ( pStates[SDL_SCANCODE_RIGHT] )
@@ -38,15 +42,39 @@ void Game::Update( float elapsedSec )
 void Game::Draw( ) const
 {
 	ClearBackground( );
+	m_pPlayer->DrawPlayer();
 }
 
 void Game::ProcessKeyDownEvent( const SDL_KeyboardEvent & e )
 {
-	//std::cout << "KEYDOWN event: " << e.keysym.sym << std::endl;
+	switch (e.keysym.sym)
+	{
+	case SDLK_d:
+		m_playerSpeed = m_speed;
+		break;
+	case SDLK_a:
+		m_playerSpeed = -m_speed;
+		break;
+	default:
+		break;
+	}
 }
 
 void Game::ProcessKeyUpEvent( const SDL_KeyboardEvent& e )
 {
+	switch (e.keysym.sym)
+	{
+	case SDLK_d:
+		if(m_playerSpeed == m_speed)
+			m_playerSpeed = 0;
+		break;
+	case SDLK_a:
+		if (m_playerSpeed == -m_speed)
+			m_playerSpeed = 0;
+		break;
+	default:
+		break;
+	}
 	//std::cout << "KEYUP event: " << e.keysym.sym << std::endl;
 	//switch ( e.keysym.sym )
 	//{
