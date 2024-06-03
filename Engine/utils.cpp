@@ -156,6 +156,11 @@ void utils::DrawEllipse( const Point2f& center, float radX, float radY, float li
 	DrawEllipse( center.x, center.y, radX, radY, lineWidth );
 }
 
+void utils::DrawEllipse(const Point2f& center, float radX, float lineWidth)
+{
+	DrawEllipse(center.x, center.y, radX, radX, lineWidth);
+}
+
 void utils::DrawEllipse( const Ellipsef& ellipse, float lineWidth  )
 {
 	DrawEllipse( ellipse.center.x, ellipse.center.y, ellipse.radiusX, ellipse.radiusY, lineWidth );
@@ -187,6 +192,10 @@ void utils::FillEllipse( const Ellipsef& ellipse )
 void utils::FillEllipse( const Point2f& center, float radX, float radY )
 {
 	FillEllipse( center.x, center.y, radX, radY );
+}
+void utils::FillEllipse(const Point2f& center, float radX)
+{
+	FillEllipse(center.x, center.y, radX, radX);
 }
 
 void utils::DrawArc( float centerX, float centerY, float radX, float radY, float fromAngle, float tillAngle, float lineWidth )

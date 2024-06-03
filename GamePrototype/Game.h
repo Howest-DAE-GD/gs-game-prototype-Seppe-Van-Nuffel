@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseGame.h"
 #include "player.h"
+#include "FruitManager.h"
 class Game : public BaseGame
 {
 public:
@@ -14,6 +15,7 @@ public:
 
 	void Update( float elapsedSec ) override;
 	void Draw( ) const override;
+	void Reset();
 
 	// Event handling
 	void ProcessKeyDownEvent( const SDL_KeyboardEvent& e ) override;
@@ -30,6 +32,9 @@ private:
 	void ClearBackground( ) const;
 
 	Player* m_pPlayer;
+	FruitManager* m_pFruitManager;
 	int m_playerSpeed;
-	float m_speed{ 150.f };
+	int m_speed{ 150 };
+	float counter{};
+	bool hasWon;
 };

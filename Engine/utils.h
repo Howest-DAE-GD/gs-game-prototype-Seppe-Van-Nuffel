@@ -29,10 +29,13 @@ namespace utils
 
 	void DrawEllipse(float centerX, float centerY, float radX, float radY, float lineWidth = 1.0f);
 	void DrawEllipse(const Point2f& center, float radX, float radY, float lineWidth = 1.0f);
+	void DrawEllipse(const Point2f& center, float radX, float lineWidth);
 	void DrawEllipse(const Ellipsef& ellipse , float lineWidth = 1.0f );
 	void FillEllipse( float centerX, float centerY, float radX, float radY );
 	void FillEllipse(const Ellipsef& ellipse );
 	void FillEllipse(const Point2f& center, float radX, float radY);
+
+	void FillEllipse(const Point2f& center, float radX);
 
 	// Draws an arc. The angle parameters are in radians, not in degrees.
 	void DrawArc(float centerX, float centerY, float radX, float radY, float fromAngle, float tillAngle, float lineWidth = 1.0f);
