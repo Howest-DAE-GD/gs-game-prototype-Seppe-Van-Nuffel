@@ -5,3 +5,13 @@ enum FRUITTYPE {
 	EF_FruitYellow,
 	EF_FruitBlue
 };
+
+enum GameState {
+	GS_Menu,
+	GS_Play
+};
+
+enum Difficulty {
+	ED_Easy,
+	ED_Hard
+};

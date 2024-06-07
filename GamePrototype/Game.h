@@ -37,5 +37,10 @@ private:
 	int m_speed{ 150 };
 	float counter{};
 	bool hasWon;
-	bool paused;
+	GameState m_GameState;
+	Rectf MenuButtonEasy;
+	Rectf MenuButtonHard;
+	Rectf MenuButtonStart;
+	Difficulty m_Difficulty;
+	bool firstFruit;
 };

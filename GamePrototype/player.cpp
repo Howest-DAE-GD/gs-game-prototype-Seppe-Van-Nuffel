@@ -2,12 +2,13 @@
 #include "player.h"
 #include "utils.h"
 
-Player::Player(int screenWidth, int screenHeight)
+Player::Player(float screenWidth, float screenHeight)
 {
 	m_ScreenWidth = screenWidth;
 	m_ScreenHeight = screenHeight;
     m_isAlive = true;
     m_Score = 0;
+    m_Highscore = 0;
     m_Streak = 0;
     m_HighestStreak = 0;
 	Point2f m_Pos = Point2f((screenWidth / 2)-25.f, 10.f);
@@ -16,7 +17,7 @@ Player::Player(int screenWidth, int screenHeight)
 	m_Rects[2] = Rectf{ m_Pos.x - screenWidth, m_Pos.y, 50.f, 70.f };
 }
 
-void Player::MovePlayer(float speed, float elapsedTime)
+void Player::MovePlayer(int speed, float elapsedTime)
 {
     if (m_Rects[0].left > m_ScreenWidth) {
         m_Rects[0].left -= m_ScreenWidth;
@@ -96,4 +97,30 @@ int Player::GetStreak() const
 int Player::GetHighestStreak() const
 {
     return m_HighestStreak;
+}
+
+void Player::EndOfMatch()
+{
+    if (m_Score > m_Highscore) {
+        m_Highscore = m_Score;
+    }
+}
+
+int Player::GetHighScore() const
+{
+    return m_Highscore;
+}
+
+void Player::Reset(float screenWidth, float screenHeight)
+{
+    m_ScreenWidth = screenWidth;
+    m_ScreenHeight = screenHeight;
+    m_isAlive = true;
+    m_Score = 0;
+    m_Streak = 0;
+    m_HighestStreak = 0;
+    Point2f m_Pos = Point2f((screenWidth / 2) - 25.f, 10.f);
+    m_Rects[0] = Rectf{ m_Pos.x, m_Pos.y, 50.f, 70.f };
+    m_Rects[1] = Rectf{ m_Pos.x - screenWidth, m_Pos.y, 50.f, 70.f };
+    m_Rects[2] = Rectf{ m_Pos.x - screenWidth, m_Pos.y, 50.f, 70.f };
 }

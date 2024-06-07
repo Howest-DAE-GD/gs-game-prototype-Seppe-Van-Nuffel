@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "FruitManager.h"
 
-FruitManager::FruitManager(int screenWidth, int screenHeight)
+FruitManager::FruitManager(float screenWidth, float screenHeight)
 {
 	m_screenWidth = screenWidth;
 	m_screenHeight = screenHeight;
@@ -16,7 +16,7 @@ void FruitManager::SpawnFruit()
 {
 	if (GetActiveNumberOfFruit() < m_vFruits.size()) {
 		int radius{ rand() % 11 + 10 };
-		Point2f pos{ float(rand() % (m_screenWidth - 2 * radius) + radius), float(m_screenHeight - radius) };
+		Point2f pos{ float(rand() % int((m_screenWidth - 2 * radius) + radius)), float(m_screenHeight - radius) };
 
 		for (int indx = 0; indx < m_vFruits.size(); indx++)
 		{

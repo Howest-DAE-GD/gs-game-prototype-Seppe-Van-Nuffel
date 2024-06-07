@@ -5,7 +5,7 @@
 class FruitManager
 {
 public:
-	FruitManager(int screenWidth, int screenHeight);
+	FruitManager(float screenWidth, float screenHeight);
 	~FruitManager();
 
 	void SpawnFruit();
@@ -17,7 +17,7 @@ public:
 
 	std::vector<Fruit*> m_vFruits{ 100 };
 private:
-	int m_screenWidth;
-	int m_screenHeight;
+	float m_screenWidth;
+	float m_screenHeight;
 };
 
