@@ -33,7 +33,7 @@ void Fruit::Draw() const
 
 void Fruit::Update(float elapsedTime)
 {
-    m_Pos.y -= 80.f * elapsedTime;
+    m_Pos.y -= 140.f * elapsedTime;
 }
 
 FRUITTYPE Fruit::GetType() const

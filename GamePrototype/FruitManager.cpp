@@ -16,12 +16,22 @@ void FruitManager::SpawnFruit()
 {
 	if (GetActiveNumberOfFruit() < m_vFruits.size()) {
 		int radius{ rand() % 11 + 10 };
-		Point2f pos{ float(rand() % int((m_screenWidth - 2 * radius) + radius)), float(m_screenHeight - radius) };
+		Point2f pos{ float(rand() % int((m_screenWidth - 2 * radius) + radius)), float(m_screenHeight + radius) };
 
 		for (int indx = 0; indx < m_vFruits.size(); indx++)
 		{
 			if (m_vFruits.at(indx) == nullptr) {
-				m_vFruits.at(indx) = new Fruit(pos, radius, FRUITTYPE(rand() % 4));
+				int random{ rand() % 20 };
+				FRUITTYPE type{};
+				if (random >= 18)
+					type = EF_FruitYellow;
+				else if (random >= 14)
+					type = EF_FruitBlue;
+				else if (random >= 10)
+					type = EF_FruitGreen;
+				else
+					type = EF_FruitRed;
+				m_vFruits.at(indx) = new Fruit(pos, radius, type);
 				break;
 			}
 		}
