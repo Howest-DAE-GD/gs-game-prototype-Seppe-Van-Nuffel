@@ -24,6 +24,9 @@ void Fruit::Draw() const
     case EF_FruitBlue:
         utils::SetColor(Color4f(0.f, 0.f, 0.5f, 1.f));
         break;
+    case EF_FruitPink:
+        utils::SetColor(Color4f(1.f, 192.f / 255.f, 203.f / 255.f, 1.f));
+        break;
     default:
         utils::SetColor(Color4f(1.f, 1.f, 0.f, 1.f));
         break;

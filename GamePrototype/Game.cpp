@@ -92,7 +92,7 @@ void Game::Update( float elapsedSec )
 			}
 
 			if (m_pPlayer->GetScore() <= 50 and m_pFruitManager->GetActiveNumberOfFruit() < 10) {
-				if (counter > 2.f) {
+				if (counter > 1.25f) {
 					m_pFruitManager->SpawnFruit();
 					counter = 0;
 				}

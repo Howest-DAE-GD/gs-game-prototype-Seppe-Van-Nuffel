@@ -3,7 +3,8 @@ enum FRUITTYPE {
 	EF_FruitRed,
 	EF_FruitGreen,
 	EF_FruitYellow,
-	EF_FruitBlue
+	EF_FruitBlue,
+	EF_FruitPink
 };
 
 enum GameState {

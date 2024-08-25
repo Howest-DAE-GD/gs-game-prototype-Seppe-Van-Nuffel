@@ -21,7 +21,7 @@ public:
 private:
 	float m_ScreenWidth;
 	float m_ScreenHeight;
-	bool m_isAlive{ true };
+	int m_isAlive{ 1 };
 	int m_Score;
 	int m_Streak;
 	int m_HighestStreak;

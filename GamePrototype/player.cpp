@@ -49,7 +49,7 @@ bool Player::CheckIfHit(Fruit* fruit)
             switch (fruit->GetType())
             {
             case EF_FruitRed:
-                m_isAlive = false;
+                --m_isAlive;
                 break;
             case EF_FruitGreen:
                 ++m_Score;
@@ -63,6 +63,9 @@ bool Player::CheckIfHit(Fruit* fruit)
                 m_Score += 5;
                 ++m_Streak;
                 break;
+            case EF_FruitPink:
+                if (m_isAlive < 3)
+                    ++m_isAlive;
             }
             return true;
         }
@@ -77,7 +80,7 @@ int Player::GetScore() const
 
 bool Player::isAlive() const
 {
-    return m_isAlive;
+    return m_isAlive > 0 ? true : false;
 }
 
 void Player::lostStreak(bool lostStreak)

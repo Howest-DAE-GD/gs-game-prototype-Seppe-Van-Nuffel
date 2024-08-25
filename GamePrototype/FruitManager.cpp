@@ -23,7 +23,9 @@ void FruitManager::SpawnFruit()
 			if (m_vFruits.at(indx) == nullptr) {
 				int random{ rand() % 20 };
 				FRUITTYPE type{};
-				if (random >= 18)
+				if (random == 19)
+					type = EF_FruitPink;
+				else if (random >= 18)
 					type = EF_FruitYellow;
 				else if (random >= 14)
 					type = EF_FruitBlue;
