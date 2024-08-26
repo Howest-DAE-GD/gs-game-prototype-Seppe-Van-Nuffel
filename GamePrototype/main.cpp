@@ -12,7 +12,7 @@ int SDL_main(int argv, char** args)
 
 	StartHeapControl();
 
-	Game* pGame{ new Game{ Window{ "Fruit Catch V1.0 - Van Nuffel, Seppe - 1DAE27", 500.f, 500.f  } } };
+	Game* pGame{ new Game{ Window{ "Fruit Catch V2.0 - Van Nuffel, Seppe - 1DAE27", 500.f, 500.f  } } };
 	pGame->Run();
 	delete pGame;
 
