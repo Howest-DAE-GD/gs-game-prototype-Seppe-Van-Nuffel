@@ -6,7 +6,7 @@ Fruit::Fruit(Point2f pos, int radius, FRUITTYPE type)
     m_Pos = pos;
     m_Radius = radius;
     m_Type = type;
-    m_Speed = (rand() % 41) + 120.f;
+    m_Speed = (rand() % 61) + 110.f;
 }
 
 void Fruit::Draw() const
