@@ -15,5 +15,6 @@ private:
 	FRUITTYPE m_Type;
 	Point2f m_Pos;
 	int m_Radius;
+	float m_Speed;
 };
 
