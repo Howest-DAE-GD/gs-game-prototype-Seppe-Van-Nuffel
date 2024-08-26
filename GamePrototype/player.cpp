@@ -114,6 +114,11 @@ int Player::GetHighScore() const
     return m_Highscore;
 }
 
+int Player::GetLives() const
+{
+    return m_isAlive;
+}
+
 void Player::Reset(float screenWidth, float screenHeight)
 {
     m_ScreenWidth = screenWidth;

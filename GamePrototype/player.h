@@ -16,6 +16,7 @@ public:
 	int GetHighestStreak() const;
 	void EndOfMatch();
 	int GetHighScore() const;
+	int GetLives() const;
 	void Reset(float screenWidth, float screenHeight);
 
 private:

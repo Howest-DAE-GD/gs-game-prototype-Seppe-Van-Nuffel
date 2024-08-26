@@ -165,6 +165,7 @@ void Game::Draw( ) const
 			Texture{ "green = 1", "LuckiestGuy-Regular.ttf", 25, Color4f(1.f,1.f,1.f,1.f) }.Draw(Point2f(0, GetViewPort().height - 60.f));
 			Texture{ "yellow = 2", "LuckiestGuy-Regular.ttf", 25, Color4f(1.f,1.f,1.f,1.f) }.Draw(Point2f(0, GetViewPort().height - 90.f));
 			Texture{ "blue = 5", "LuckiestGuy-Regular.ttf", 25, Color4f(1.f,1.f,1.f,1.f) }.Draw(Point2f(0, GetViewPort().height - 120.f));
+			Texture{ "Lives: " + std::to_string(m_pPlayer->GetLives()), "LuckiestGuy-Regular.ttf", 25, Color4f(1.f,1.f,1.f,1.f)}.Draw(Point2f(0, 0));
 
 			m_pFruitManager->Draw();
 			m_pPlayer->DrawPlayer();
